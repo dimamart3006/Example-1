@@ -1,27 +1,28 @@
-from math import tan, pi
+from math import tan, pi, ceil
 import time
-import functools
 
 
-def timef(func):
+def timefunc(func):
     def need_time(*args, **kwargs):
         start = time.perf_counter()
         res = func(*args, **kwargs)
-        time_e = time.perf_counter() - start
-        print(f"Функция: {func.__name__}, Затраченное время: {time_e}\n")
+        time_r = time.perf_counter() - start
+        print(f"Функция: {func.__name__}, Затраченное время: {time_r}\n")
         return res
-
     return need_time
 
 
-@timef
-def areaOfPolygon(length, number):
-    number = int(number)
-    area = (number * length ** 2) / (4 * tan(pi / number))
-    print("Площадь правильного многоугольника %.2f " % area)
+@timefunc
+def square(s, n):
+    return (n * s ** 2) / (4 * tan(pi / n))
+
+s = float(input("Введите длинну стороны: "))
+n = ceil(float(input("Введите кол-во сторон: ")))
+print("Площадь равна: ", square(s, n))
 
 
-@timef
-def sumOfTheFirst(n):
-    sum_num = (n * (n + 1)) / 2
-    print("Сумма первых", n, "положительных чисел:", sum_num)
+@timefunc
+def sum(total):
+    return (ceil((total * (total + 1)) / 2))
+total = int(input("Введите положительное число: "))
+print("Сумма первых ", total, " чисел равна: ", sum(total))
