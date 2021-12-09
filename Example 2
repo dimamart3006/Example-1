@@ -1,0 +1,25 @@
+from math import tan, pi, ceil
+
+s = float(input("Введите длинну стороны: "))
+n = ceil(float(input("Введите кол-во сторон: ")))
+square = (n * s ** 2) / (4 * tan(pi / n))
+print("Площадь равна: ", square)
+
+total = int(input("Введите положительное число: "))
+sum = (ceil((total * (total + 1)) / 2))
+print("Сумма первых ", total, " чисел равна: ", sum)  
+
+b = str(input("Введите букву: "))
+if b == "a":
+    print("Буква,", b, "гласная")
+elif b == "e":
+     print("Буква,", b, "гласная")
+elif b == "i":
+     print("Буква,", b, 'гласная')
+elif b == "o":
+     print("Буква,", b, 'гласная')
+elif b == "u":
+     print("Буква,", b, 'гласная')
+elif b == "y":
+     print("Буква,", b, 'может быть гласной или согласной')
+else: print("Буква,", b, "согласная")
